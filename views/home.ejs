@@ -1,0 +1,21 @@
+<% include ./partials/header %>                      
+
+<body>
+    <% function elipsify(text){
+        if(text.length>10){
+            return(text.substring(0,100)+"...");
+        }
+        else{
+            return text;
+        }
+    } %> 
+    <h1>Home</h1>
+    <p><%=homeText%></p>
+
+    <% data.forEach(function(element){%>
+        <h1><%=element.title%></h1>
+        <% var head =element.title %> 
+        <p><%=elipsify(element.bodyText)%><a href="/posts/<%=element.title%>">Read More</a></p>
+    <%})%>   
+</body>
+<% include ./partials/footer %>
